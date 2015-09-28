@@ -1,0 +1,33 @@
+I.概述
+Spring 框架是个轻量级解决方案，在构建一站式企业级应用程序上有很大的潜能。Spring是模块化的，允许你仅使用需要的不分，而不需要引入其余部分。你可以使用IoC容器，和其他Web框架一起使用，而且你可以仅仅使用Hibernate集成代码或者JDBC的抽象层。Spring框架支持声明式事物管理，通过RMI或者Web Service远程访问，以及各种持久化数据的方法。Spring提供了一个功能齐全的Web框架，允许你显示的整合AOP到你的软件中。
+Spring 被设计成非侵入式的，也就是说你的业务逻辑代码通常是不会对Spring框架本身产生依赖的。在你的整合层面（比如数据访问层），一些依赖于数据访问技术和Spring的类库是会存在的。但是，也很容易将这些依赖从你剩余的代码中分离出来。
+本文档是Spring框架的参考指南功能。如果你有任何请求,评论,或对这个文档的问题,请将它们贴在用户邮件列表。框架的问题，可以在StackOverflow提问(见https://spring.io/questions)。
+1、Spring入门
+指南文档提供了Spring框架详细的信息 。提供了所有特征的详细文档，而且还包含一些底层概念的背景（比如依赖注入）。
+如果你仅仅是开始使用Spring框架，你可以通过Spring 创建一个基于 application 的 Spring Boot。Spring Boot 提供了一个基于 application 的快捷的（并且配置好的）Spring。它是基于Spring框架，支持覆盖配置，能够让你尽可能的快速启动和运行。
+你还可以使用 start.spring.io 自动创建一个基础项目或者依照“Getting Started”的指南，比如 Getting Started 创建一个 RESTful Web Service。这些指南大部分都是基于Spring Boot，除了非常容易理解和吸收外，重点聚焦于任务。它们还涵盖了一些其他Spring项目，当你考虑解决一个特定问题的时候。
+
+2、Spring简介
+Spring 框架是一个Java平台，它提供了对用Java语言开发应用程序的一种广泛的基础支持。Spring本身来控制这个基础，那么你就可以集中精力于应用程序的开发了。Spring允许你从“普通Java对象（POJO）”来构建应用程序，并且将非侵入地企业级服务应用于POJO中。这种能力不仅适用于JavaSE编程模型，也适用于全部或部分的JavaEE。
+作为应用程序的开发人员，下面就是可以使用Spring平台所含优点的例子：
+编写Java方法来执行数据库事务而不需要处理相关的事务API。
+编写本地的Java方法来访问远程程序而不需要处理远程访问API。
+编写本地的Java方法来执行管理操作而不需要处理JMX的API。
+编写本地的Java方法来处理消息操作而不需要处理JMS的API。
+
+2.1 依赖注入和控制反转
+Java 应用程序--一个宽松的术语，囊括了从被限制的 application 到n层服务器端的企业级应用程序的全部–典型的应用是，包含了组成独特应用程序的合作对象。那么在应用程序中的这些对象就会有相互依赖关系。
+尽管Java平台提供了丰富的应用程序开发功能，但是它也缺乏组织基本模块到整体的方式，而是把这个任务留给了系统架构师和开发人员去解决。也就是说，你可以设计如工厂，抽象工厂，构建者，装饰者和服务定位器等设计模式来组合各个类，以及构成该应用程序的对象的实例。然而，这些模式都是最简单的：最佳的做法是给定一个名称，并且描述这个模式做了些什么，在哪里可以应用它，它所强调的问题是什么等等。模式可以使得你必须自己实现的最佳实践形式化。
+Spring框架的控制反转（Inversion of Control，IoC）组件提供了组合不同的组件到完整可用的应用程序的形式化方法。Spring框架编写了形式化的设计模式作为顶级对象，你可以用来整合到你自己的应用程序中。很多组织和研究机构使用Spring的这个方式来设计健壮的，可维护的应用程序。
+
+背景
+“问题是，[它们]反向控制哪一方面？”，2004年，Martin Fowler在他个人站点提出了这个关于控制反转（IoC）的问题。Fowler建议重命名这个原则，使得它更好地自我解释，同时提出了依赖注入。要深入了解IoC和DI，可以参考Fowler的文章，地址是：http://martinfowler.com/articles/injection.html
+
+2.2 Spring的模块
+images:: images/spring-overview.jgp
+以下章节列出了可用模块的功能，以及他们的模块的名称和封装的主题。模块的名称可以和依赖工具中的Artifact ID关联。
+2.2.1 Core Container
+核心容器由 spring-core、spring-beans、spring-context、spring-context-support 和 spring-expression（SpringEL）模块组成。
+
+
+
