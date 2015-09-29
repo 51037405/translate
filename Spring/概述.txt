@@ -79,3 +79,91 @@ Maven的中央库，也是Maven默认检索的资源库，它并不会检索特殊的配置来使用。很多Spri
 Spring的依赖与被依赖
 尽管Spring提供对整合的支持，以及对大量企业级应用及其外部工具的支持，那么它也有心保持它的强制依赖在一个绝对小的数目上：你不需要为了简单的使用去定位并下载（甚至是自动地）大量的jar来使用Spring。对于基本的依赖注入那只需要一个必须的外部依赖，就是日志（可以参考下面关于日志的深入介绍）。
 下面，我们来概述一下配置一个基于Spring的应用程序所需的基本配置，首先使用Maven，然后是Gradle和Ivy。在所有的示例中，如果有哪一点不清楚，可以参考你所使用的依赖管理系统的相关文档，或者参考一些示例代码 – Spring本身在构建时使用了Gradle 来管理依赖，我们大多数的示例也使用Gradle 或者Maven。
+
+Maven依赖管理
+如果你正使用Maven来进行依赖管理，那么你就不需要明确地提供日志依赖。比如，要为应用程序配置创建应用上下文并使用依赖注入特性，那么，你的Maven依赖配置文件可以是这样的：
+<dependencies>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context</artifactId>
+        <version>4.2.1.RELEASE</version>
+        <scope>runtime</scope>
+    </dependency>
+</dependencies>
+就是这么简单。要注意的是，如果你在编译代码时不需要使用Spring的API，那么scope元素可以声明为runtime，这就可以用于典型的依赖注入用例。
+在上面的示例中，我们使用了Maven中央仓库。使用Spring Maven仓库，那就需要在Maven的配置文件中明确地指定资源库的位置。对于完整发布版，配置如下：
+ <repositories>
+     <repository>
+         <id>io.spring.repo.maven.release</id>
+         <url>http://repo.spring.io/release/</url>
+         <snapshots><enabled>false</enabled></snapshots>
+     </repository>
+ </repositories>
+里程碑版本：
+<repositories>
+    <repository>
+        <id>io.spring.repo.maven.milestone</id>
+        <url>http://repo.spring.io/milestone/</url>
+        <snapshots><enabled>false</enabled></snapshots>
+    </repository>
+</repositories>
+开发快照版本：
+<repositories>                                                                            w
+    <repository>
+        <id>io.spring.repo.maven.snapshot</id>
+        <url>http://repo.spring.io/snapshot/</url>
+        <snapshots><enabled>true</enabled></snapshots>
+    </repository>
+</repositories>
+Maven的BOM依赖
+当你使用Maven的时候有可能把Spring不同版本的jar包混合在一起。比如，你找到一个第三方的类库，或者另一个Spring的项目，依赖一个旧的稳定版本。如果你忘记了排除这个依赖，可能会产生让你意向不到的问题。
+为了解决这些问题，Maven支持BOM依赖的概念。你可以在你的dependencyManagement节点中引入spring-framework-bom 以确保依赖的组件（直接或者间接的）都是同一个版本。
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-framework-bom</artifactId>
+            <version>4.2.1.RELEASE</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+使用BOM的另一好处是你在依赖Spring组件的时候，不再需要再指定<version>的属性。
+<dependencies>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-web</artifactId>
+    </dependency>
+<dependencies>
+Gradle 依赖管理
+使用 Gradle 通过Spring中央仓库构建项目，包含appropriate URL 在repositories 节点：
+repositories {
+    mavenCentral()
+    // and optionally...
+    maven { url "http://repo.spring.io/release" }
+}
+你可以修改repositories 的URL 从 /release 到 /milestone 到 /snapshot 作为恰当的地址，一旦配置好仓库，你就可以通过 Gradle 声明依赖：
+dependencies {
+    compile("org.springframework:spring-context:4.2.1.RELEASE")
+    testCompile("org.springframework:spring-test:4.2.1.RELEASE")
+}
+如果你使用Ivy来管理依赖，那么有一些简单的命名规约和配置选项。
+要配置Ivy定位到SpringSource EBR中，需要添加如下的解析器元素到你的配置文件 ivysettings.xml中：
+<resolvers>
+    <ibiblio name="io.spring.repo.maven.release"
+            m2compatible="true"
+            root="http://repo.spring.io/release/"/>
+</resolvers>
+你可以修改 root URL 从 /release 到 /milestone 到 /snapshot 作为恰当的地址。
+一点你配置好，就可以通过Ivy来添加依赖了，例如（在ivy.xml中）：
+<dependency org="org.springframework"
+    name="spring-core" rev="4.2.1.RELEASE" conf="compile->runtime"/>
+Zip文件
+尽管推荐使用支持依赖管理的构建系统的获取Spring框架,仍然可以下载zip文件。
+zip文件发布在Spring中央仓库（为了方便,你不需要使用Maven或任何其他构建系统就能下载它们）。
+通过web浏览器打开  http://repo.spring.io/release/org/springframework/spring ，选择你想要的版本的文件夹。zip文件以 -dist.zip为结尾。比如spring-framework-{spring-version}-RELEASE-dist.zip。zip文件同样有里程碑版本和开发快照版本。

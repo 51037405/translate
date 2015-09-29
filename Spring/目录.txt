@@ -16,7 +16,7 @@ I.概述
                    Maven BOM依赖
                    Gradle 依赖管理                  I
                    Ivy 依赖管理
-                   Zip 文件分布
+                   Zip 文件
             2.3.2、日志
                    没有使用 Commons Logging
                    使用了 SLF4J
