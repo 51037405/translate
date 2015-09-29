@@ -24,10 +24,58 @@ Spring¿ò¼ÜµÄ¿ØÖÆ·´×ª£¨Inversion of Control£¬IoC£©×é¼þÌá¹©ÁË×éºÏ²»Í¬µÄ×é¼þµ½ÍêÕû¿
 ¡°ÎÊÌâÊÇ£¬[ËüÃÇ]·´Ïò¿ØÖÆÄÄÒ»·½Ãæ£¿¡±£¬2004Äê£¬Martin FowlerÔÚËû¸öÈËÕ¾µãÌá³öÁËÕâ¸ö¹ØÓÚ¿ØÖÆ·´×ª£¨IoC£©µÄÎÊÌâ¡£Fowler½¨ÒéÖØÃüÃûÕâ¸öÔ­Ôò£¬Ê¹µÃËü¸üºÃµØ×ÔÎÒ½âÊÍ£¬Í¬Ê±Ìá³öÁËÒÀÀµ×¢Èë¡£ÒªÉîÈëÁË½âIoCºÍDI£¬¿ÉÒÔ²Î¿¼FowlerµÄÎÄÕÂ£¬µØÖ·ÊÇ£ºhttp://martinfowler.com/articles/injection.html
 
 2.2 SpringµÄÄ£¿é
+Í¼ 2.1 Spring-Overview
 images:: images/spring-overview.jgp
 ÒÔÏÂÕÂ½ÚÁÐ³öÁË¿ÉÓÃÄ£¿éµÄ¹¦ÄÜ£¬ÒÔ¼°ËûÃÇµÄÄ£¿éµÄÃû³ÆºÍ·â×°µÄÖ÷Ìâ¡£Ä£¿éµÄÃû³Æ¿ÉÒÔºÍÒÀÀµ¹¤¾ßÖÐµÄArtifact ID¹ØÁª¡£
 2.2.1 Core Container
 ºËÐÄÈÝÆ÷ÓÉ spring-core¡¢spring-beans¡¢spring-context¡¢spring-context-support ºÍ spring-expression£¨SpringEL£©Ä£¿é×é³É¡£
+spring-core ºÍ spring-beans ÊÇ¿ò¼ÜµÄ»ù´¡£¬°üº¬IoCºÍÒÀÀµ×¢Èë¡£BeanFactory ÊÇ¹¤³§Ä£Ê½¾­µäµÄÊµÏÖ¡£ËüÈ¥µôÁË±à³ÌÊµÏÖµ¥ÀýµÄÐèÒª£¬²¢ÔÊÐíÄã½â³ýÅäÖÃÐÅÏ¢£¬ÒÔ¼°Êµ¼Ê³ÌÐòÂß¼­µÄÌØ¶¨ÒÀÀµÖ®¼äµÄñîºÏ¡£
+ContextÄ£¿é½¨Á¢ÔÚ Core ºÍ BeansÄ£¿éµÄ¼á¹Ì»ù´¡Ö®ÉÏ¡£Ëü¿ÉÒÔÈÃÄãÓÃ¿ò¼Ü·ç¸ñÀ´·ÃÎÊÊý¾Ý£¬¾ÍÏñJNDI×¢ÈëÒ»Ñù¡£ContextÄ£¿é¼Ì³ÐÁËBeansÄ£¿éµÄÌØÔö£¬²¢ÇÒÔö¼ÓÁË¹ú¼Ê»¯µÄÖ§³Ö£¨Ê¹ÓÃ£¬ÀýÈç£¬×ÊÔ´Êø£©¡¢ÊÂ¼þ´«²¥¡¢×ÊÔ´¼ÓÔØºÍÏÔÊ¾´´½¨context£¬ÀýÈçServletÈÝÆ÷¡£ContextÄ£¿éÍ¬ÑùÒ²Ö§³ÖJava EEµÄÌØÕ÷£¬±ÈÈçEJB£¬JMXºÍ»ù±¾µÄÔ¶³Ìµ÷ÓÃ¡£ApplicationContext ½Ó¿ÚÊÇContextÄ£¿éµÄÖØµã¡£spring-context-support ¼¯³ÉµÚÈý·½Í¨ÓÃº¯Êý¿â£¬ÎªÁËSpringÓ¦ÓÃÉÏÏÂÎÄµÄ»º´æ£¨Ehcache¡¢Guava¡¢JCache£©¡¢ÓÊ¼þ£¨JavaMail£©¡¢µ÷¶È£¨CommonJ£¬Quartz£©ºÍÄ£°åÒýÇæ£¨FreeMarker, JasperReports, Velocity£©Ìá¹©ÁËÖ§³Ö¡£
+spring-expressionÄ£¿éÌá¹©ÁËÇ¿´óµÄ±í´ïÊ½ÓïÑÔÔÚÔËÐÐÊ±²éÑ¯ºÍ²Ù×÷¶ÔÏóÍ¼¡£ÕâÊÇJSP 2.1¹æ·¶ÖÐµÄÍ³Ò»±í´ïÊ½ÓïÑÔ£¨Unified EL£©µÄÒ»¸öÀ©Õ¹¡£¸Ã±í´ïÊ½ÓïÑÔÖ§³ÖÉèÖÃºÍ»ñÈ¡ÊôÐÔÖµ£¬ÊôÐÔ¶¨Òå£¬·½·¨µ÷ÓÃ£¬·ÃÎÊÊý×é£¬¼¯ºÏÒÔ¼°Ë÷ÒýµÄÉÏÏÂÎÄ¡£Ö§³ÖÂß¼­ºÍÊý×ÖÔËËã£¬ÃüÃû±äÁ¿¡£»¹Ö§³Ö´ÓSpringµÄIoCÈÝÆ÷ÖÐÒÔÃû³ÆÀ´»ñÈ¡¶ÔÏó¡£ËüÒ²Ö§³ÖlistµÄÍ¶Ó°ºÍÑ¡Ôñ²Ù×÷£¬»¹ÓÐÆÕÍ¨µÄlist¾Û¼¯¡£
+2.2.2 AOPºÍ¼ì²â
+SpringµÄAOP£¨8.1½Ú£©Ä£¿éÌá¹©ÁËAOPÁªÃË-ÔÊÐíµÄµÄÃæÏòÇÐÃæµÄ±à³ÌÊµÏÖ£¬ÔÊÐíÄã¶¨ÒåÈç·½·¨-À¹½ØÆ÷ºÍºáÇÐµãÀ´Õû½àµØ½âñîÓ¦¸Ã±»·ÖÀëµÄ¹¦ÄÜÊµÏÖ´úÂë¡£Ê¹ÓÃÔ´´úÂë¼¶µÄÔªÊý¾Ý¹¦ÄÜ£¬Ò²¿ÉÒÔ»ìºÏÐÐÎªÐÅÏ¢µ½´úÂëÖÐ£¬Õâ¸ö·½Ê½ºÍ.NETµÄÊôÐÔºÜÏàËÆ¡£
+·ÖÀëµÄAspectsÄ£¿éÌá¹©¶ÔAspectJµÄÕûºÏ¡£
+spring-instrument Ä£¿éÌá¹©ÁËÀà¼ì²âµÄÖ§³ÖºÍÄ³Ð©Ó¦ÓÃ·þÎñÆ÷Àà¼ÓÔØµÄÊµÏÖ¡£spring-instrument-tomcat Ä£¿é°üº¬ÁËTomcatµÄ¼ì²â´úÀí¡£
+2.2.3 ÏûÏ¢
+Spring4 °üº¬ÁË spring-messaging Ä£¿é¡£¸ÄÄ£¿é°üº¬ÁËSpring¼¯³ÉÏîÄ¿£¬±ÈÈçMessage£¬MessageChannel¡¢MessageHandleºÍÆäËûÒÔÏûÏ¢Îª»ù´¡Ìá¹©·þÎñµÄÓ¦ÓÃµÄ¹Ø¼üµÄ³éÏóÀà¡£¸ÄÄ£¿éÍ¬Ñù°üº¬Ò»×é´ÓÏûÏ¢Ó³Éäµ½·½·¨µÄ×¢½â£¬¾ÍÏëSpringMVCÖÐ»ùÓÚ±à³ÌÄ£ÐÍµÄ×¢½â¡£
+2.2.4 Êý¾Ý·ÃÎÊ/¼¯³É
+Êý¾Ý·ÃÎÊ/¼¯³É²ã°üº¬JDBC¡¢ORM¡¢OXM¡¢JMSºÍÊÂÎïÄ£¿é¡£
+spring-jdbc Ìá¹©ÁËJDBC³éÏó²ã£¬ËüÒÆ³ýÁËÈß³¤µÄJDBC±àÂë£¬µ«½âÎöÁËÊý¾Ý¿â Ìá¹©ÉÌ¶¨ÒåµÄÌØ¶¨´íÎó´úÂë¡£
+spring-tx Ä£¿éÖ§³Ö¶ÔÊµÏÖÌØ¶¨½Ó¿ÚµÄÀàºÍËùÓÐPOJO£¨ÆÕÍ¨Java¶ÔÏó£©µÄ±à³ÌÊ½ºÍÉùÃ÷Ê½µÄÊÂÎñ¹ÜÀí¡£
+spring-orm Ä£¿éÌá¹©ÁË¶ÔÁ÷ÐÐµÄ¶ÔÏó-ÊµÌåÓ³ÉäAPIµÄÕûºÏ²ã£¬°üº¬JPA£¬JDO£¬HibernateºÍiBatis¡£Ê¹ÓÃspring-orm Ä£¿éÄã¾Í¿ÉÒÔÊ¹ÓÃÈ«²¿µÄO/R-Ó³Éä¿ò¼Ü²¢ÁªºÏÆäËüSpringÌá¹©µÄÌØÐÔ£¬±ÈÈçÖ®Ç°ËùÌáµ½µÄ¼òµ¥ÉùÃ÷Ê½µÄÊÂÎñ¹ÜÀíÌØÐÔ¡£
+spring-oxm Ä£¿éÌá¹©ÁËÖ§³ÖJAXB£¬Castor£¬XMLBeans£¬JiBX£¬ÒÔ¼°Xstream¶Ô¶ÔÏó/XMLÓ³ÉäÊµÏÖµÄ³éÏó²ã¡£
+spring-jms Ä£¿é£¨JMS£©Ä£¿é°üº¬Éú³ÉºÍ´¦ÀíÏûÏ¢µÄÌØÐÔ¡£Spring 4.1 ÒÔºó£¬Ëü»¹Ìá¹©ÁËºÍ spring-messages Ä£¿éµÄÕûºÏ¡£
+2.2.5 Web
+Web²ãÓÉspring-web¡¢spring-webmvc¡¢spring-websocket¡¢ºÍspring-webmvc-portlet×é³É¡£
+spring-web Ä£¿éÌá¹©ÁËÃæÏòwebÕûºÏµÄ»ù±¾ÌØÕ÷£¬±ÈÈçÎÄ¼þÉÏ´«¹¦ÄÜ¡¢Ê¹ÓÃServlet¼à¿Ø³õÊ¼»¯IoCÈÝÆ÷ÒÔ¼°ÃæÏòwebµÄÉÏÏÂÎÄ¡£¸ÃÄ£¿é»¹°üº¬ÁËHttp¿Í»§¶ËºÍ¶ÔÓÚSpringÔ¶³Ì·ÃÎÊÖÐwebÏà¹ØµÄÖ§³Ö¡£
+spring-webmvc Ä£¿é£¨Ò²±»³ÆÎªWeb-ServletÄ£¿é£©ÓÐ Spring MVC ºÍ REST Web Service×é³É¡£Spring MVC¿ò¼ÜÌá¹©ÁËÒ»¸öÔÚÁìÓòÄ£ÐÍ´úÂëºÍWeb±íµ¥Ö®¼äµÄÕû½à·ÖÀë£¬²¢ÇÒÕûºÏÁËÆäËüËùÓÐSpring¿ò¼ÜµÄÌØÐÔ¡£
+spring-webmvc-portlet Ä£¿é£¨Ò²±»³ÆÎª Web-PortletÄ£¿é£©Ìá¹©ÓÃÓÚportlet»·¾³ºÍWeb-ServletÄ£¿é¹¦ÄÜ¾µÏñµÄMVCÊµÏÖ¡£
+2.2.6 ²âÊÔ
+spring-test Ä£¿éÍ¨¹ýJUnitºÍTestNGÌá¹©ÁËSpringµÄ×é¼þµÄµ¥Ôª²âÊÔºÍ¼¯³É²âÊÔ¡£ËüÌá¹©ÁËSpring µÄApplicationContexts µÄÒ»ÖÂ¼ÓÔØ²¢»º´æÕâÐ©ÉÏÏÂÎÄÄÚÈÝ¡£ËüÒ²Ìá¹©mock¶ÔÏó£¬Äã¿ÉÒÔÓÃÀ´µ¥¶ÀµÄ²âÊÔ´úÂë¡£
 
-
-
+2.3 Ó¦ÓÃ³¡¾°
+Ç°ÃæÃèÊöµÄÄ£¿éÊ¹µÃSpring¿ÉÒÔÔÚºÜ¶à·½°¸ÖÐ×÷ÎªÒµÎñÂß¼­ÊµÏÖµÄÑ¡Ôñ£¬´Ó×ÊÔ´ÊÜÏÞµÄÉè±¸ÉÏÔËÐÐµÄÇ¶ÈëÊ½Ó¦ÓÃµ½ÒÔSpringÊÂÎï¹ÜÀíÎª»ù´¡£¬Í¨¹ýWeb¿ò¼ÜÕûºÏµÄ¹¦ÄÜÍêÉÆµÄÆóÒµ¼¶Ó¦ÓÃ¡£
+Í¼2.2 µäÐÍµÄ¹¦ÄÜÍêÉÆµÄÆóÒµ¼¶Ó¦ÓÃ
+images::images/overview-full.jpg
+SpringµÄÉùÃ÷Ê½ÊÂÎñ¹ÜÀíÌØÐÔÊ¹µÃWebÓ¦ÓÃ³ÌÐò¿ÉÒÔÈ«²¿ÊÂÎñ»¯£¬¾ÍºÃÏñÊ¹ÓÃÁËEJBÈÝÆ÷¹ÜÀíµÄÊÂÎñ¡£È«²¿µÄ×Ô¶¨ÒåµÄÒµÎñÂß¼­¿ÉÒÔÍ¨¹ý¼òµ¥µÄPOJOÀàÊµÏÖ£¬²¢Í¨¹ýSpringµÄIoCÈÝÆ÷½øÐÐ¹ÜÀí¡£ÆäËüµÄ·þÎñ°üº¬¶Ô·¢ËÍÓÊ¼þµÄÖ§³Ö£¬ÑéÖ¤¶ÔWeb²ã¶ÀÁ¢£¬Õâ¿ÉÒÔÈÃÄãÑ¡ÔñÔÚÄÄÀïÖ´ÐÐÑéÖ¤¹æÔò¡£SpringµÄORMÖ§³Ö¶ÔJPA£¬Hibernate,JDOºÍiBatis½øÐÐÁËÕûºÏ£»±ÈÈç£¬µ±Ê¹ÓÃHibernateÊ±£¬Äã¿ÉÒÔ¼ÌÐøÊ¹ÓÃÒÑÓÐµÄÓ³ÉäÎÄ¼þºÍ±ê×¼µÄHibernateµÄSessionFactoryÅäÖÃ¡£±íµ¥¿ØÖÆÆ÷Í¨¹ýÒµÎñÄ£ÐÍÎÞ·ìµØÕûºÏÁËWeb²ã£¬È¥³ýÁË¶ÔActionFormµÄÐèÇóÒÔ¼°Http²ÎÊý×ª»»ÎªÒµÎñÄ£ÐÍÊôÐÔÖµµÄÀà¡£
+Í¼2.3 Ê¹ÓÃÁËµÚÈý·½web¿ò¼ÜµÄSpringÖÐ¼ä²ã
+images::images/overview-thirdparty-web.jpg
+ÓÐÐ©Çé¿öÏÂ£¬²»ÔÊÐíÄãÍêÈ«ÇÐ»»µ½²»Í¬µÄ¿ò¼ÜÖÐ¡£Spring¿ò¼Ü²¢²»ÊÇÒ»¸ö·Ç´Ë¼´±ËµÄ½â¾ö·½°¸£¬Ëû²¢²»Ç¿ÆÈÄãÈ«¶¼¶¼Ê¹ÓÃËû¡£Í¨¹ýStruts, Tapestry, JSF »òÕßÆäËûUI ¿ò¼Ü¹¹½¨µÄÇ°¶ËÍ¬Ñù¿ÉÒÔ¼¯³ÉÒÔSpringÎª»ù´¡µÄÖÐ¼ä²ã£¬¿ÉÒÔÊ¹ÓÃSpringÊÂÎï¹ÜÀíµÄ¹¦ÄÜ¡£ÄãÖ»ÐèÒªÍ¨¹ýApplicationContextÁ¬½ÓÄãµÄÒµÎñÂß¼­ÒÔ¼°Ê¹ÓÃWebApplicationContextÕûºÏÄãµÄweb²ã¡£
+Í¼2.4 Ô¶³ÌÊ¹ÓÃ³¡¾°
+images::images/overview-remoting.jpg
+µ±ÄãÏëÍ¨¹ýweb·þÎñ·ÃÎÊÒÑ¾­´æÔÚµÄ´úÂë£¬Äã¿ÉÒÔÊ¹ÓÃSpringµÄHessian-, Burlap-, Rmi- »ò JaxRpcProxyFactory Àà¡£ÆôÓÃÔ¶³Ì·ÃÎÊÏÖÓÐµÄÓ¦ÓÃ³ÌÐò²¢²»ÄÑ¡£
+Í¼2.5 EJBs °ü×°ÏÖÓÐµÄPOJO
+images::images/overview-ejb.jpg
+Spring ¿ò¼ÜÒ²Ìá¹©ÁËEJBµÄÊ¹ÓÃÍ¨µÀºÍEJBµÄ³éÏó²ã£¬Õâ¾Í¿ÉÒÔÖØÓÃÒÑÓÐµÄPOJO£¬¿ÉÒÔÀ©Õ¹¡¢°ü×°ËüÃÇµ½ÎÞ×´Ì¬»á»°bean£¬²»°²È«µÄWebÓ¦ÓÃ³ÌÐò¿ÉÄÜÒ²ÐèÒªÉùÃ÷Ê½°²È«¡£
+2.3.1 ÒÀÀµ¹ÜÀíºÍÃüÃû¹æÔ¼
+ÒÀÀµ¹ÜÀíºÍÒÀÀµ×¢ÈëÊÇ²»Í¬µÄÊÂÇé¡£ÒªÔÚÓ¦ÓÃ³ÌÐòÖÐÌí¼ÓSpringµÄÓÅÑÅÌØÐÔ£¨±ÈÈçÒÀÀµ×¢Èë£©£¬ÄãÐèÒª·ÅÖÃËùÐèµÄÀà¿â£¨jarÎÄ¼þ£©£¬²¢ÇÒÌí¼Óµ½ÔËÐÐÊ±»·¾³µÄÀàÂ·¾¶ÖÐ£¬Í¨³£ÔÚ±àÒëÊ±Ò²ÊÇÐèÒªÕâÐ©Àà¿âÎÄ¼þµÄ¡£ÕâÐ©ÒÀÀµ²»ÊÇ×¢ÈëµÄÐéÄâ×é¼þ£¬¶øÊÇÎÄ¼þÏµÍ³£¨Í¨³£À´ËµÊÇÕâÑù£©ÉÏµÄÎïÀí×ÊÔ´¡£ÒÀÀµ¹ÜÀíµÄ¹ý³Ì°üÀ¨¶¨Î»×ÊÔ´£¬´æ´¢ËüÃÇ£¬²¢½«ËüÃÇÌí¼Óµ½ÀàÂ·¾¶ÖÐ¡£ÒÀÀµ¿ÉÒÔÊÇÖ±½ÓµÄ£¨±ÈÈçÓ¦ÓÃ³ÌÐòÔÚÔËÐÐÊ±ÐèÒªSpring£©£¬»òÕßÊÇ¼ä½ÓµÄ£¨±ÈÈçÓ¦ÓÃ³ÌÐòÐèÒªµÄcommons-dbcp×é¼þ»¹ÒÀÀµÓÚcommons-pool×é¼þ£©¡£¼ä½ÓµÄÒÀÀµÒ²±»ÈÏÎªÊÇ¡°¹ý¶ÈµÄ¡±£¬¶øÇÒÄÇÐ©ÒÀÀµ±¾Éí¾ÍÄÑÒÔÊ¶±ðºÍ¹ÜÀí¡£
+Èç¹ûÄã¾ö¶¨Ê¹ÓÃSpring£¬ÄÇÃ´ÄãÐèÒª»ñµÃSpringµÄjar°ü£¬ÆäÖÐÒª°üÀ¨ÄãËùÐèÒªÊ¹ÓÃµÄSpringµÄÄ£¿é¡£ÎªÁËÊ¹ÓÃµÄ±ã½Ý£¬Spring±»´ò°ü³É¸÷¸öÄ£¿éµÄ¼¯ºÏ£¬¾¡¿ÉÄÜµØ·ÖÀëÆäÖÐµÄÏà»¥ÒÀÀµ£¬ÄÇÃ´Èç¹ûÄã²»Ïë±àÐ´WebÓ¦ÓÃ³ÌÐò£¬¾Í²»ÐèÒªÌí¼Óspring-webÄ£¿éµÄjar°ü¡£Òª²Î¿¼SpringÄ£¿éµÄ¿â£¬±¾Ö¸ÄÏÊ¹ÓÃÁËÒ»¸ö¿ÉÒÔËÙ¼ÇµÄÃüÃû¹æÔ¼£¬spring-*»òÕßspring-*.jar£¬ÕâÀïµÄ¡°*¡±´ú±íÁË¸÷Ä£¿éµÄ¶ÌÃû³Æ£¨±ÈÈç£¬spring-core£¬spring-webmvc£¬spring-jmsµÈ£©¡£Êµ¼ÊÉÏjarÎÄ¼þÃüÃû»òÐí¾ÍÊÇÕâÖÖÐÎÊ½µÄ£¨²Î¿¼ÏÂÃæµÄÊ¾Àý£©£¬µ«Ò²ÓÐ¿ÉÄÜ²»ÊÇÕâÖÖÇé¿ö£¬Í¨³£ËüµÄÎÄ¼þÃûÖÐ»¹°üº¬Ò»¸ö°æ±¾ºÅ£¨±ÈÈç£¬spring-core-4.2.1.RELEASE.jar£©¡£
+Ã¿¸öÎÈ¶¨°æ±¾µÄ×é¼þ¶¼»á±»·¢²¼µ½ÏÂÃæµÄµØ·½£º
+MavenµÄÖÐÑë¿â£¬Ò²ÊÇMavenÄ¬ÈÏ¼ìË÷µÄ×ÊÔ´¿â£¬Ëü²¢²»»á¼ìË÷ÌØÊâµÄÅäÖÃÀ´Ê¹ÓÃ¡£ºÜ¶àSpringËùÒÀÀµµÄ³£ÓÃÀà¿âÒ²¿ÉÒÔ´ÓMavenµÄÖÐÑë¿âÖÐ»ñµÃ£¬Í¬Ê±SpringÉçÇøµÄ¾ø´ó¶àÊýÓÃ»§¶¼Ê¹ÓÃMaven×÷ÎªÒÀÀµ¹ÜÀí¹¤¾ß£¬Õâ¶ÔÓÚËûÃÇÀ´ËµÊÇºÜ·½±ãµÄ¡£ÕâÀïµÄjar°üµÄÃüÃû¹æÔòÊÇspring-*-<version>.jar¸ñÊ½µÄ£¬²¢ÇÒMavenÀïµÄgroupIdÊÇorg.springframework¡£
+×¨ÃÅÎªSpringÍÐ¹ÜµÄMaven¹«¹²²Ö¿â¡£³ýÁË×îÖÕµÄGA°æ±¾£¬»¹ÍÐ¹ÜÁË¿ª·¢ÖÐµÄSNAPSHOT°æ±¾ºÍMILESTONE°æ±¾¡£ÎÄ¼þÃüÃûºÍMaven²Ö¿âÃüÃûÒ»Ñù£¬ËùÒÔÕâ¸ö»ñÈ¡¿ª·¢°æ±¾·Ç³£ÓÐÓÃµÄµØ·½¡£Õâ¸ö²Ö¿âÍ¬Ñù°üº¬ÁËzipÎÄ¼þ£¬·Ç³£ÈÝÒ×ÏÂÔØ¡£
+ÄÇÃ´£¬Ê×ÏÈÄãÒª¾ö¶¨µÄÊÂÇéÊÇÈçºÎ¹ÜÀíÕâÐ©ÒÀÀµ£ºÎÒÃÇÒ»°ã½¨ÒéÊ¹ÓÃÒ»¸ö×Ô¶¯»¯µÄÏµÍ³£¬±ÈÈçMaven¡¢Gradle »òÕß Ivy£¬µ±È»ÄãÒ²¿ÉÒÔ×Ô¼ºÊÖ¶¯ÏÂÔØËùÓÐjar¡£
+Ò»ÏÂÁÐ±íÖÐÊÇÄã¿ÉÒÔÕÒµ½µÄSpringµÄ×é¼þ£¬Ä£¿éµÄÏêÏ¸ÃèÊö²Î¼Ó µÚ2.2ÕÂ ¡°Ä£¿é¡±¡£
+±í2.1 Spring Framework Artifacts£¨ÂÔ£©
+SpringµÄÒÀÀµÓë±»ÒÀÀµ
+¾¡¹ÜSpringÌá¹©¶ÔÕûºÏµÄÖ§³Ö£¬ÒÔ¼°¶Ô´óÁ¿ÆóÒµ¼¶Ó¦ÓÃ¼°ÆäÍâ²¿¹¤¾ßµÄÖ§³Ö£¬ÄÇÃ´ËüÒ²ÓÐÐÄ±£³ÖËüµÄÇ¿ÖÆÒÀÀµÔÚÒ»¸ö¾ø¶ÔÐ¡µÄÊýÄ¿ÉÏ£ºÄã²»ÐèÒªÎªÁË¼òµ¥µÄÊ¹ÓÃÈ¥¶¨Î»²¢ÏÂÔØ£¨ÉõÖÁÊÇ×Ô¶¯µØ£©´óÁ¿µÄjarÀ´Ê¹ÓÃSpring¡£¶ÔÓÚ»ù±¾µÄÒÀÀµ×¢ÈëÄÇÖ»ÐèÒªÒ»¸ö±ØÐëµÄÍâ²¿ÒÀÀµ£¬¾ÍÊÇÈÕÖ¾£¨¿ÉÒÔ²Î¿¼ÏÂÃæ¹ØÓÚÈÕÖ¾µÄÉîÈë½éÉÜ£©¡£
+ÏÂÃæ£¬ÎÒÃÇÀ´¸ÅÊöÒ»ÏÂÅäÖÃÒ»¸ö»ùÓÚSpringµÄÓ¦ÓÃ³ÌÐòËùÐèµÄ»ù±¾ÅäÖÃ£¬Ê×ÏÈÊ¹ÓÃMaven£¬È»ºóÊÇGradleºÍIvy¡£ÔÚËùÓÐµÄÊ¾ÀýÖÐ£¬Èç¹ûÓÐÄÄÒ»µã²»Çå³þ£¬¿ÉÒÔ²Î¿¼ÄãËùÊ¹ÓÃµÄÒÀÀµ¹ÜÀíÏµÍ³µÄÏà¹ØÎÄµµ£¬»òÕß²Î¿¼Ò»Ð©Ê¾Àý´úÂë ¨C Spring±¾ÉíÔÚ¹¹½¨Ê±Ê¹ÓÃÁËGradle À´¹ÜÀíÒÀÀµ£¬ÎÒÃÇ´ó¶àÊýµÄÊ¾ÀýÒ²Ê¹ÓÃGradle »òÕßMaven¡£
