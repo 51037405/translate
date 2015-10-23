@@ -71,47 +71,47 @@ Spring框架的控制反转（Inversion of Control，IoC）组件提供了组合
 
 以下章节列出了可用模块的功能，以及他们的模块的名称和封装的主题。模块的名称可以和依赖工具中的Artifact ID关联。
 #### 2.2.1 Core Container
-核心容器由 spring-core、spring-beans、spring-context、spring-context-support 和 spring-expression（SpringEL）模块组成。
+核心容器由 `spring-core`、`spring-beans`、`spring-context`、`spring-context-support` 和 `spring-expression`(SpringEL)模块组成。
 
-spring-core 和 spring-beans 是框架的基础，包含IoC和依赖注入。BeanFactory 是工厂模式经典的实现。它去掉了编程实现单例的需要，并允许你解除配置信息，以及实际程序逻辑的特定依赖之间的耦合。
+`spring-core` 和 `spring-beans` 是框架的基础，包含IoC和依赖注入。`BeanFactory` 是工厂模式经典的实现。它去掉了编程实现单例的需要，并允许你解除配置信息，以及实际程序逻辑的特定依赖之间的耦合。
 
-Context模块建立在 Core 和 Beans模块的坚固基础之上。它可以让你用框架风格来访问数据，就像JNDI注入一样。Context模块继承了Beans模块的特增，并且增加了国际化的支持（使用，例如，资源束）、事件传播、资源加载和显示创建context，例如Servlet容器。Context模块同样也支持Java EE的特征，比如EJB，JMX和基本的远程调用。ApplicationContext 接口是Context模块的重点。spring-context-support 集成第三方通用函数库，为了Spring应用上下文的缓存（Ehcache、Guava、JCache）、邮件（JavaMail）、调度（CommonJ，Quartz）和模板引擎（FreeMarker, JasperReports, Velocity）提供了支持。
+Context(`spring-context`)模块建立在 Core 和 Beans模块的坚固基础之上。它可以让你用框架风格来访问数据，就像JNDI注入一样。Context模块继承了Beans模块的特增，并且增加了国际化的支持（使用，例如，资源束）、事件传播、资源加载和显示创建context，例如Servlet容器。Context模块同样也支持Java EE的特征，比如EJB，JMX和基本的远程调用。`ApplicationContext` 接口是Context模块的重点。`spring-context-support` 集成第三方通用函数库，为了Spring应用上下文的缓存（Ehcache、Guava、JCache）、邮件（JavaMail）、调度（CommonJ，Quartz）和模板引擎（FreeMarker, JasperReports, Velocity）提供了支持。
 
-spring-expression模块提供了强大的表达式语言在运行时查询和操作对象图。这是JSP 2.1规范中的统一表达式语言（Unified EL）的一个扩展。该表达式语言支持设置和获取属性值，属性定义，方法调用，访问数组，集合以及索引的上下文。支持逻辑和数字运算，命名变量。还支持从Spring的IoC容器中以名称来获取对象。它也支持list的投影和选择操作，还有普通的list聚集。
+`spring-expression`模块提供了强大的表达式语言在运行时查询和操作对象图。这是JSP 2.1规范中的统一表达式语言（Unified EL）的一个扩展。该表达式语言支持设置和获取属性值，属性定义，方法调用，访问数组，集合以及索引的上下文。支持逻辑和数字运算，命名变量。还支持从Spring的IoC容器中以名称来获取对象。它也支持list的投影和选择操作，还有普通的list聚集。
 
 #### 2.2.2 AOP和检测
-Spring的AOP（8.1节）模块提供了AOP联盟-允许的的面向切面的编程实现，允许你定义如方法-拦截器和横切点来整洁地解耦应该被分离的功能实现代码。使用源代码级的元数据功能，也可以混合行为信息到代码中，这个方式和.NET的属性很相似。
-分离的Aspects模块提供对AspectJ的整合。
+`spring-aop`（8.1节）模块提供了AOP联盟-允许的的面向切面的编程实现，允许你定义如方法-拦截器和横切点来整洁地解耦应该被分离的功能实现代码。使用源代码级的元数据功能，也可以混合行为信息到代码中，这个方式和.NET的属性很相似。
+分离的`spring-aspects`模块提供对AspectJ的整合。
 
-spring-instrument 模块提供了类检测的支持和某些应用服务器类加载的实现。spring-instrument-tomcat 模块包含了Tomcat的检测代理。
+`spring-instrument` 模块提供了类检测的支持和某些应用服务器类加载的实现。`spring-instrument-tomcat` 模块包含了Tomcat的检测代理。
 
 #### 2.2.3 消息
-Spring4 包含了 spring-messaging 模块。改模块包含了Spring集成项目，比如Message，MessageChannel、MessageHandle和其他以消息为基础提供服务的应用的关键的抽象类。改模块同样包含一组从消息映射到方法的注解，就想SpringMVC中基于编程模型的注解。
+Spring4 包含了 `spring-messaging` 模块。改模块包含了Spring集成项目，比如Message，MessageChannel、MessageHandle和其他以消息为基础提供服务的应用的关键的抽象类。改模块同样包含一组从消息映射到方法的注解，就想SpringMVC中基于编程模型的注解。
 
 #### 2.2.4 数据访问/集成
 数据访问/集成层包含JDBC、ORM、OXM、JMS和事物模块。
 
-spring-jdbc 提供了JDBC抽象层，它移除了冗长的JDBC编码，但解析了数据库 提供商定义的特定错误代码。
+`spring-jdbc` 提供了JDBC抽象层，它移除了冗长的JDBC编码，但解析了数据库 提供商定义的特定错误代码。
 
-spring-tx 模块支持对实现特定接口的类和所有POJO（普通Java对象）的编程式和声明式的事务管理。
+`spring-tx` 模块支持对实现特定接口的类和所有POJO（普通Java对象）的编程式和声明式的事务管理。
 
-spring-orm 模块提供了对流行的对象-实体映射API的整合层，包含JPA，JDO，Hibernate和iBatis。使用spring-orm 模块你就可以使用全部的O/R-映射框架并联合其它Spring提供的特性，比如之前所提到的简单声明式的事务管理特性。
+`spring-orm` 模块提供了对流行的对象-实体映射API的整合层，包含JPA，JDO，Hibernate和iBatis。使用`spring-orm` 模块你就可以使用全部的O/R-映射框架并联合其它Spring提供的特性，比如之前所提到的简单声明式的事务管理特性。
 
-spring-oxm 模块提供了支持JAXB，Castor，XMLBeans，JiBX，以及Xstream对对象/XML映射实现的抽象层。
+`spring-oxm` 模块提供了支持JAXB，Castor，XMLBeans，JiBX，以及Xstream对对象/XML映射实现的抽象层。
 
-spring-jms 模块（JMS）模块包含生成和处理消息的特性。Spring 4.1 以后，它还提供了和 spring-messages 模块的整合。
+`spring-jms` 模块（JMS）模块包含生成和处理消息的特性。Spring 4.1 以后，它还提供了和 spring-messages 模块的整合。
 
 #### 2.2.5 Web
-Web层由spring-web、spring-webmvc、spring-websocket、和spring-webmvc-portlet组成。
+Web层由`spring-web`、`spring-webmvc`、`spring-websocket`、和`spring-webmvc-portlet`组成。
 
-spring-web 模块提供了面向web整合的基本特征，比如文件上传功能、使用Servlet监控初始化IoC容器以及面向web的上下文。该模块还包含了Http客户端和对于Spring远程访问中web相关的支持。
+`spring-web` 模块提供了面向web整合的基本特征，比如文件上传功能、使用Servlet监控初始化IoC容器以及面向web的上下文。该模块还包含了Http客户端和对于Spring远程访问中web相关的支持。
 
-spring-webmvc 模块（也被称为Web-Servlet模块）有 Spring MVC 和 REST Web Service组成。Spring MVC框架提供了一个在领域模型代码和Web表单之间的整洁分离，并且整合了其它所有Spring框架的特性。
+`spring-webmvc` 模块（也被称为Web-Servlet模块）有 Spring MVC 和 REST Web Service组成。Spring MVC框架提供了一个在领域模型代码和Web表单之间的整洁分离，并且整合了其它所有Spring框架的特性。
 
-spring-webmvc-portlet 模块（也被称为 Web-Portlet模块）提供用于portlet环境和Web-Servlet模块功能镜像的MVC实现。
+`spring-webmvc-portlet` 模块（也被称为 Web-Portlet模块）提供用于portlet环境和`spring-webmvc`模块功能镜像的MVC实现。
 
 #### 2.2.6 测试
-spring-test 模块通过JUnit和TestNG提供了Spring的组件的单元测试和集成测试。它提供了Spring 的ApplicationContexts 的一致加载并缓存这些上下文内容。它也提供mock对象，你可以用来单独的测试代码。
+`spring-test` 模块通过JUnit和TestNG提供了Spring的组件的单元测试和集成测试。它提供了Spring 的ApplicationContexts 的一致加载并缓存这些上下文内容。它也提供mock对象，你可以用来单独的测试代码。
 
 ### 2.3 应用场景
 前面描述的模块使得Spring可以在很多方案中作为业务逻辑实现的选择，从资源受限的设备上运行的嵌入式应用到以Spring事物管理为基础，通过Web框架整合的功能完善的企业级应用。
