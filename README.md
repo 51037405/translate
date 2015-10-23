@@ -4,16 +4,16 @@ Spring Framework Reference Documentation
 Based on 4.2.1.RELEASE
 #目录
 * [概述](#概述)
-	* [概览](#1-Spring入门)
-	* [简介](#2-Spring简介)
+	* [概览](#1-spring入门)
+	* [简介](#2-spring简介)
 		* [依赖注入和控制反转](#21-依赖注入和控制反转)
-		* [模块](#22-Spring的模块)
-			* [核心容器]()
-			* [AOP和检测]()
-			* [消息]()
-			* [数据访问/集成]()
-			* [网络]()
-			* [测试]()
+		* [模块](#22-spring的模块)
+			* [核心容器](#221-core-container)
+			* [AOP和检测](#222-aop和检测)
+			* [消息](#223-消息)
+			* [数据访问/集成](#224-数据访问集成)
+			* [网络](#225-web)
+			* [测试](#226-测试)
 		* [应用场景]()
 			* [依赖管理和命名规约]()
 				* [Spring依赖和被依赖]()
@@ -63,8 +63,11 @@ Spring框架的控制反转（Inversion of Control，IoC）组件提供了组合
 	地址是：http://martinfowler.com/articles/injection.html
 
 ### 2.2 Spring的模块
-图 2.1 Spring-Overview
+
+**图 2.1 Spring-Overview**
 ![Spring-Overview](../master/Spring/images/spring-overview.png)
+
+
 以下章节列出了可用模块的功能，以及他们的模块的名称和封装的主题。模块的名称可以和依赖工具中的Artifact ID关联。
 #### 2.2.1 Core Container
 核心容器由 spring-core、spring-beans、spring-context、spring-context-support 和 spring-expression（SpringEL）模块组成。
@@ -112,23 +115,26 @@ spring-test 模块通过JUnit和TestNG提供了Spring的组件的单元测试和
 ### 2.3 应用场景
 前面描述的模块使得Spring可以在很多方案中作为业务逻辑实现的选择，从资源受限的设备上运行的嵌入式应用到以Spring事物管理为基础，通过Web框架整合的功能完善的企业级应用。
 
+**图2.2 典型的功能完善的企业级应用**
 ![](../master/Spring/images/overview-full.png)
-图2.2 典型的功能完善的企业级应用
+
 
 Spring的声明式事务管理特性使得Web应用程序可以全部事务化，就好像使用了EJB容器管理的事务。全部的自定义的业务逻辑可以通过简单的POJO类实现，并通过Spring的IoC容器进行管理。其它的服务包含对发送邮件的支持，验证对Web层独立，这可以让你选择在哪里执行验证规则。Spring的ORM支持对JPA，Hibernate,JDO和iBatis进行了整合；比如，当使用Hibernate时，你可以继续使用已有的映射文件和标准的Hibernate的SessionFactory配置。表单控制器通过业务模型无缝地整合了Web层，去除了对ActionForm的需求以及Http参数转换为业务模型属性值的类。
 
+**图2.3 使用了第三方web框架的Spring中间层**
 ![](../master/Spring/images/overview-thirdparty-web.png)
-图2.3 使用了第三方web框架的Spring中间层
+
 
 有些情况下，不允许你完全切换到不同的框架中。Spring框架并不是一个非此即彼的解决方案，他并不强迫你全都都使用他。通过Struts, Tapestry, JSF 或者其他UI 框架构建的前端同样可以集成以Spring为基础的中间层，可以使用Spring事物管理的功能。你只需要通过ApplicationContext连接你的业务逻辑以及使用WebApplicationContext整合你的web层。
 
+**图2.4 远程使用场景**
 ![](../master/Spring/images/overview-remoting.png)
-图2.4 远程使用场景
+
 
 当你想通过web服务访问已经存在的代码，你可以使用Spring的Hessian-, Burlap-, Rmi- 或 JaxRpcProxyFactory 类。启用远程访问现有的应用程序并不难。
 
+**图2.5 EJBs 包装现有的POJO**
 ![](../master/Spring/images/overview-ejb.png)
-图2.5 EJBs 包装现有的POJO
 
 Spring 框架也提供了EJB的使用通道和EJB的抽象层，这就可以重用已有的POJO，可以扩展、包装它们到无状态会话bean，不安全的Web应用程序可能也需要声明式安全。
 
