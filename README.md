@@ -33,14 +33,14 @@ Spring 框架是个轻量级解决方案，在构建一站式企业级应用程�
 Spring 被设计成非侵入式的，也就是说你的业务逻辑代码通常是不会对Spring框架本身产生依赖的。在你的整合层面（比如数据访问层），一些依赖于数据访问技术和Spring的类库是会存在的。但是，也很容易将这些依赖从你剩余的代码中分离出来。
 本文档是Spring框架的参考指南功能。如果你有任何请求,评论,或对这个文档的问题,请将它们贴在用户邮件列表。框架的问题，可以在StackOverflow提问(https://spring.io/questions)。
 
-## 1、Spring入门
+## 1. Spring入门
 指南文档提供了Spring框架详细的信息 。提供了所有特征的详细文档，而且还包含一些底层概念的背景（比如依赖注入）。
 
 如果你仅仅是开始使用Spring框架，你可以通过Spring 创建一个基于 application 的 Spring Boot。Spring Boot 提供了一个基于 application 的快捷的（并且配置好的）Spring。它是基于Spring框架，支持覆盖配置，能够让你尽可能的快速启动和运行。
 
 你还可以使用 start.spring.io 自动创建一个基础项目或者依照“Getting Started”的指南，比如 Getting Started 创建一个 RESTful Web Service。这些指南大部分都是基于Spring Boot，除了非常容易理解和吸收外，重点聚焦于任务。它们还涵盖了一些其他Spring项目，当你考虑解决一个特定问题的时候。
 
-## 2、Spring简介
+## 2. Spring简介
 Spring 框架是一个Java平台，它提供了对用Java语言开发应用程序的一种广泛的基础支持。Spring本身来控制这个基础，那么你就可以集中精力于应用程序的开发了。Spring允许你从“普通Java对象（POJO）”来构建应用程序，并且将非侵入地企业级服务应用于POJO中。这种能力不仅适用于JavaSE编程模型，也适用于全部或部分的JavaEE。
 
 作为应用程序的开发人员，下面就是可以使用Spring平台所含优点的例子：
@@ -56,12 +56,15 @@ Java 应用程序--一个宽松的术语，囊括了从被限制的 application 
 
 Spring框架的控制反转（Inversion of Control，IoC）组件提供了组合不同的组件到完整可用的应用程序的形式化方法。Spring框架编写了形式化的设计模式作为顶级对象，你可以用来整合到你自己的应用程序中。很多组织和研究机构使用Spring的这个方式来设计健壮的，可维护的应用程序。
 
-	**背景**
-	“问题是，[它们]反向控制哪一方面？”，2004年，Martin Fowler在他个人站点提出了这个关于控制反转（IoC）的问题。Fowler建议重命名这个原则，使得它更好地自我解释，同时提出了依赖注入。要深入了解IoC和DI，可以参考Fowler的文章，地址是：http://martinfowler.com/articles/injection.html
+	背景
+	
+	“问题是，[它们]反向控制哪一方面？”，2004年，Martin Fowler在他个人站点提出了这个关于控制反转（IoC）的问题。
+	Fowler建议重命名这个原则，使得它更好地自我解释，同时提出了依赖注入。要深入了解IoC和DI，可以参考Fowler的文章，
+	地址是：http://martinfowler.com/articles/injection.html
 
 ### 2.2 Spring的模块
 图 2.1 Spring-Overview
-![Spring-Overview](../images/spring-overview.jgp)
+![Spring-Overview](../master/Spring/images/spring-overview.jgp)
 以下章节列出了可用模块的功能，以及他们的模块的名称和封装的主题。模块的名称可以和依赖工具中的Artifact ID关联。
 #### 2.2.1 Core Container
 核心容器由 spring-core、spring-beans、spring-context、spring-context-support 和 spring-expression（SpringEL）模块组成。
@@ -109,23 +112,24 @@ spring-test 模块通过JUnit和TestNG提供了Spring的组件的单元测试和
 ### 2.3 应用场景
 前面描述的模块使得Spring可以在很多方案中作为业务逻辑实现的选择，从资源受限的设备上运行的嵌入式应用到以Spring事物管理为基础，通过Web框架整合的功能完善的企业级应用。
 
+![](../master/Spring/images/overview-full.jpg)
 图2.2 典型的功能完善的企业级应用
-![](../images/overview-full.jpg)
 
 Spring的声明式事务管理特性使得Web应用程序可以全部事务化，就好像使用了EJB容器管理的事务。全部的自定义的业务逻辑可以通过简单的POJO类实现，并通过Spring的IoC容器进行管理。其它的服务包含对发送邮件的支持，验证对Web层独立，这可以让你选择在哪里执行验证规则。Spring的ORM支持对JPA，Hibernate,JDO和iBatis进行了整合；比如，当使用Hibernate时，你可以继续使用已有的映射文件和标准的Hibernate的SessionFactory配置。表单控制器通过业务模型无缝地整合了Web层，去除了对ActionForm的需求以及Http参数转换为业务模型属性值的类。
 
+![](../master/Spring/images/overview-thirdparty-web.jpg)
 图2.3 使用了第三方web框架的Spring中间层
-![](../images/overview-thirdparty-web.jpg)
 
 有些情况下，不允许你完全切换到不同的框架中。Spring框架并不是一个非此即彼的解决方案，他并不强迫你全都都使用他。通过Struts, Tapestry, JSF 或者其他UI 框架构建的前端同样可以集成以Spring为基础的中间层，可以使用Spring事物管理的功能。你只需要通过ApplicationContext连接你的业务逻辑以及使用WebApplicationContext整合你的web层。
 
+![](../master/Spring/images/overview-remoting.jpg)
 图2.4 远程使用场景
-![](../images/overview-remoting.jpg)
 
 当你想通过web服务访问已经存在的代码，你可以使用Spring的Hessian-, Burlap-, Rmi- 或 JaxRpcProxyFactory 类。启用远程访问现有的应用程序并不难。
 
+![](../master/Spring/images/overview-ejb.jpg)
 图2.5 EJBs 包装现有的POJO
-![](../images/overview-ejb.jpg)
+
 Spring 框架也提供了EJB的使用通道和EJB的抽象层，这就可以重用已有的POJO，可以扩展、包装它们到无状态会话bean，不安全的Web应用程序可能也需要声明式安全。
 
 #### 2.3.1 依赖管理和命名规约
@@ -144,13 +148,13 @@ Maven的中央库，也是Maven默认检索的资源库，它并不会检索特�
 
 表2.1 Spring Framework Artifacts（略）
 
-Spring的依赖与被依赖
+##### Spring的依赖与被依赖
 
 尽管Spring提供对整合的支持，以及对大量企业级应用及其外部工具的支持，那么它也有心保持它的强制依赖在一个绝对小的数目上：你不需要为了简单的使用去定位并下载（甚至是自动地）大量的jar来使用Spring。对于基本的依赖注入那只需要一个必须的外部依赖，就是日志（可以参考下面关于日志的深入介绍）。
 
 下面，我们来概述一下配置一个基于Spring的应用程序所需的基本配置，首先使用Maven，然后是Gradle和Ivy。在所有的示例中，如果有哪一点不清楚，可以参考你所使用的依赖管理系统的相关文档，或者参考一些示例代码 – Spring本身在构建时使用了Gradle 来管理依赖，我们大多数的示例也使用Gradle 或者Maven。
 
-Maven依赖管理
+##### Maven依赖管理
 如果你正使用Maven来进行依赖管理，那么你就不需要明确地提供日志依赖。比如，要为应用程序配置创建应用上下文并使用依赖注入特性，那么，你的Maven依赖配置文件可以是这样的：
 ```xml
 <dependencies>
@@ -194,7 +198,8 @@ Maven依赖管理
     </repository>
 </repositories>
 ```
-Maven的BOM依赖
+
+##### Maven的BOM依赖
 
 当你使用Maven的时候有可能把Spring不同版本的jar包混合在一起。比如，你找到一个第三方的类库，或者另一个Spring的项目，依赖一个旧的稳定版本。如果你忘记了排除这个依赖，可能会产生让你意向不到的问题。
 为了解决这些问题，Maven支持BOM依赖的概念。你可以在你的dependencyManagement节点中引入spring-framework-bom 以确保依赖的组件（直接或者间接的）都是同一个版本。
@@ -224,7 +229,7 @@ Maven的BOM依赖
     </dependency>
 <dependencies>
 ```
-Gradle 依赖管理
+##### Gradle 依赖管理
 使用 Gradle 通过Spring中央仓库构建项目，包含appropriate URL 在repositories 节点：
 ```gradle
 repositories {
@@ -240,6 +245,7 @@ dependencies {
     testCompile("org.springframework:spring-test:4.2.1.RELEASE")
 }
 ```
+##### Ivy依赖管理
 如果你使用Ivy来管理依赖，那么有一些简单的命名规约和配置选项。
 要配置Ivy定位到SpringSource EBR中，需要添加如下的解析器元素到你的配置文件 ivysettings.xml中：
 ```xml
@@ -255,7 +261,8 @@ dependencies {
 <dependency org="org.springframework"
     name="spring-core" rev="4.2.1.RELEASE" conf="compile->runtime"/>
 ```
-Zip文件
+
+##### Zip文件
 
 尽管推荐使用支持依赖管理的构建系统的获取Spring框架,仍然可以下载zip文件。
 
@@ -263,7 +270,7 @@ zip文件发布在Spring中央仓库（为了方便,你不需要使用Maven或�
 
 通过web浏览器打开  http://repo.spring.io/release/org/springframework/spring ，选择你想要的版本的文件夹。zip文件以 -dist.zip为结尾。比如spring-framework-{spring-version}-RELEASE-dist.zip。zip文件同样有里程碑版本和开发快照版本。
 
-日志
+#### 2.3.2 日志
 
 对于Spring来说，日志是一个非常重要的依赖，因为a)这是唯一强制的外部依赖，b) 开发人员都会想看到他们所使用的工具的一些输出内容，而且c)Spring整合了多种实用工具，它们都会选择一种日志依赖包。应用程序开发人员的目标之一就是在核心位置对整个应用程序有一个统一的日志配置，包括对所有的外部组件。因为日志框架有多种选择，那么这就可能有些难以确定了。
 
@@ -271,7 +278,7 @@ Spring中强制的日志依赖包是Jakarta的Commons Logging API（JCL）。我
 
 关于commons-logging比较好的做法是你不需要做其它的步骤就可以使应用程序运行起来。它有一个运行时的查找算法，在我们都知道的类路径下寻找其它的日志框架，并且使用Spring认为是比较合适的（或者告诉Spring你需要使用的具体是哪一个）一个。如果没有找到可用的，那么你会得到一个来自JDK（java.util.logging或者简称为JUL）本身看起来还不错的日志依赖。那么，你会发现在很多时候，Spring应用程序运行中会有日志信息打印到控制台上，这点是很重要的。
 
-不使用Commons Logging
+##### 不使用Commons Logging
 
 不幸的是，commons-logging的运行时查找算法对最终用户方便是有些问题的。如果我们可以让时光倒流并让Spring从现在开始作为一个新的项目进行，那么我们会使用不同的日志依赖。首选的日志依赖可能就是Java简单的日志门面（SLF4J），SLF4J也被Spring的开发人员在他们其它应用程序中的很多工具所使用。
 这有两个非常典型的关闭 commons-logging 的方法：
@@ -295,7 +302,7 @@ Spring中强制的日志依赖包是Jakarta的Commons Logging API（JCL）。我
 ```
 目前这个应用程序可能就不能运行了，因为在类路径中已经没有了JCL API的实现了，所以要修复这个问题的话，就要提供另外一种日志的实现了。在下一节中，我们来说明如何提供一个其它的JCL的实现，这里，我们使用SLF4J作为示例。
 
-使用SLF4J
+##### 使用SLF4J
 
 SLF4J是一个整洁的日志依赖，在运行时的效率也比commons-logging更高，因为 SLF4J使用了编译时构建，而不是运行时去查找其它整合的日志框架。这也就意味着你可以更明确地在运行时去做些什么，并且去声明或配置。SLF4J为很多通用的日志框架提供的绑定，所以通常你可以选择已有的一个，并去绑定配置或管理。
 
@@ -341,7 +348,7 @@ SLF4J为很多通用日志框架提供绑定，包括JCL，并且也可以反向
 
 另外，在SLF4J的用户中一个较为常见的选择是使用很少步骤，同时产生更少的依赖，那也就是直接绑定到Logback上。这会去掉很多额外的绑定步骤，因为Logback本身直接实现了SLF4J，这样的话，你就仅需要两个依赖的类库，而不用原先的是四个了（就是jcl-over-slf4j和logback）。如果你也确实那么来做了，你可能还需要从其它外部依赖（而不是Spring）中去掉slf4j-api的依赖，因为在类路径中只保留一个API的一个版本就行了。
 
-使用 Log4J
+##### 使用 Log4J
 
 很多用户出于配置和管理的目的而使用Log4j作为日志框架。这样也同样很有效率并且易于创建，而且，Log4j也是我们事实上在构建和测试Spring时，和运行时环境中使用的日志框架。Spring本身也提供一些工具来配置和初始化Log4j，所以，在某些模块中它也提供了可选的在编译时对Log4j框架的依赖。
 
