@@ -26,8 +26,32 @@ Based on 4.2.1.RELEASE
 				* [没有使用CommonsLogging](#不使用commons-logging)
 				* [使用了SLF4J](#使用slf4j)
 				* [使用了Log4J](#使用-log4j)
-* [Spring 4.x 的新特征]()
+* [Spring 4.x 的新特征](#spring-4x-的新特征)
+    * [Spring Framework 4.0 的新特征和优化功能]()
+        * [改进开始使用的体验](#31-提升了入门的体验)
+        * [删除的包和方法](#32-删除废弃的包和方法)
+        * [Java 8 (as well as 6 and 7)](#33-java8以及6和7)
+        * [Java EE 6 and 7](#34-javaee6和7)
+        * [Groovy Bean Definition DSL](#35-groovy-bean-definition-dsl)
+        * [核心容器的改进](#36-核心容器的改进)
+        * [Web 改进](#37-web改进)
+        * [WebSocket, SockJS, and STOMP Messaging](#38-websocketsockjs和stomp消息)
+        * [Testing Improvements](#39-测试改进)
+    * [Spring Framework 4.1 的新特征和优化功能](#4-spring-41增强和新功能)
+        * [JMS 改进](#41-jms改进)
+        * [Caching 改进](#42-caching改进)
+        * [Web 改进](#43-web改进)
+        * [WebSocket Messaging 改进](#44-websocket-messaging-改进)
+        * [Testing 改进](#45-testing-改进)
+    * [Spring Framework 4.2 的新特征和优化功能](#5-spring-42增强和新功能)
+        * [Core Container 改进](#51-核心容器的改进)
+        * [Data Access 改进](#52-数据访问的提升)
+        * [JMS 改进](#53-jms改进)
+        * [Web 改进](#54-web-改进)
+        * [WebSocket Messaging 改进](#55-websocket-messaging-改进)
+        * [Testing 改进](#56-testing-改进)
 
+***
 
 # 概述
 Spring 框架是个轻量级解决方案，在构建一站式企业级应用程序上有很大的潜能。Spring是模块化的，允许你仅使用需要的不分，而不需要引入其余部分。你可以使用IoC容器，和其他Web框架一起使用，而且你可以仅仅使用Hibernate集成代码或者JDBC的抽象层。Spring框架支持声明式事物管理，通过RMI或者Web Service远程访问，以及各种持久化数据的方法。Spring提供了一个功能齐全的Web框架，允许你显示的整合AOP到你的软件中。
