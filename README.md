@@ -63,7 +63,6 @@ Based on 4.2.1.RELEASE
     * [依赖](#64-依赖)
         * [依赖注入](#641-依赖注入)
         * [依赖配置详解](#642-依赖配置详解)
-***
 
 # 概述
 Spring 框架是个轻量级解决方案，在构建一站式企业级应用程序上有很大的潜能。Spring是模块化的，允许你仅使用需要的不分，而不需要引入其余部分。你可以使用IoC容器，和其他Web框架一起使用，而且你可以仅仅使用Hibernate集成代码或者JDBC的抽象层。Spring框架支持声明式事物管理，通过RMI或者Web Service远程访问，以及各种持久化数据的方法。Spring提供了一个功能齐全的Web框架，允许你显示的整合AOP到你的软件中。
@@ -751,7 +750,7 @@ Spring 4.1为了在`CacheInterface`添加一个新的`putIfAbsent`方法也做�
 
 # 核心技术
 ## 6 IoC容器
- ### 6.1 Spring IoC 容器和Beans入门
+### 6.1 Spring IoC 容器和Beans入门
  本章节阐述了Spring框架实现控制翻转（IoC）的原理。IoC也被称为依赖注入（DI）。应用控制反转，对象在被创建的时候，由一个调控系统内所有对象的外界实体，将其所依赖的对象的引用，传递给它。也可以说，依赖被注入到对象中。所以，控制反转是，关于一个对象如何获取他所依赖的对象的引用,这个责任的反转。
 
  `org.springframework.beans` 和 `org.springframework.context` 是Sprig 框架的 IoC 容器的基础包的。 `BeanFactory` 提供能够管理任何类型的对象的高级配置机制。 `ApplicationContext` 是 `BeanFactory` 的一个子接口。功能得到了进一步增强，更容易与Spring AOP 集成，资源处理，事件传递，各种不同应用层的上下文的实现(如，`WebApplicationContext`)。
@@ -760,7 +759,7 @@ Spring 4.1为了在`CacheInterface`添加一个新的`putIfAbsent`方法也做�
 
  在Spring中，我们把那些被Spring IoC容器管理的关键对象(组成你应用程序的主体)称之为beans.一个Bean实际上是指一个被IOC容器管理，实例，装配的对象(object)。而bean定义以及bean相互间的依赖关系将通过配置元数据来描述。
 
- ### 6.2 容器
+### 6.2 容器
 
  `org.springframework.context.ApplicationContext` 对Bean的管理是通过读取配置元数据实现的。这种元数据可以表现为XML，Java注解或者Java代码。她描述了应用程序中复杂的依赖关系。
 
@@ -774,7 +773,7 @@ Spring 4.1为了在`CacheInterface`添加一个新的`putIfAbsent`方法也做�
 
  ![](../master/Spring/images/container-magic.png)
 
- #### 6.2.1 配置元数据
+#### 6.2.1 配置元数据
 
  在前面的图中，我们知道IoC容器将读取配置元数据(_configuration metadata_)；并且从配置中读取应用程序各个对象的实例化，配置以及组装。
 
@@ -816,7 +815,7 @@ Spring 4.1为了在`CacheInterface`添加一个新的`putIfAbsent`方法也做�
 
  id属性的值是指协作对象，指协作对象的XML不是这个示例中所示；有关更多信息，请参见[依赖]()。
 
- #### 6.2.2 实例化容器
+#### 6.2.2 实例化容器
 
  实例化容器实际上非常简单。本地路径或其他路径提供一个给ApplicationContext构造函数，实际上是资源字符串，使容器从本地文件系统、Java类路径等加载配置元数据以及各种各样的外部资源。
 
@@ -892,7 +891,7 @@ Spring 4.1为了在`CacheInterface`添加一个新的`putIfAbsent`方法也做�
  > 它是可以的但不是推荐，来引用使用相对的父目录中的文件"../"路径。这样做是在当前的应用程序外部的文件创建一个依赖项。尤其是，这一提法不适合"类路径中:"Url (例如，"类路径:../services.xml")，在运行时解析过程选择"最近"的类路径中根，然后看着它的父目录。类路径配置更改可能会导致选择的不同，不正确的目录。
   你可以使用完全限定的资源位置而不是相对路径: 例如，"file:C:/config/services.xml"或"classpath:/config/services.xml"。然而，要知道你耦合应用程序配置到特定的绝对位置。它一般最好是保持间接为这种绝对的位置，例如，通过对 JVM 系统属性在运行时解析的"${...}"占位符。
 
-  #### 6.2.3 使用容器
+#### 6.2.3 使用容器
 
   在ApplicationContext中调用方法T getBean(String name, Class<T> requiredType)你就可以获得你定义Bean的实例化对象。如下例所示：
 
@@ -910,7 +909,7 @@ Spring 4.1为了在`CacheInterface`添加一个新的`putIfAbsent`方法也做�
 
   `getBean()` 用于检索您的 bean 的实例。`ApplicationContext`接口有其他几种方法用于检索 bean ，但理想的情况是您的应用程序代码应该永远不会使用它们。事实上，应用程序代码应该根本没有调用 `getBean()` 方法，并因此没有依赖 Spring api。例如，Spring和 web 框架集成提供各种 web 框架类如控制器和 JSF 托管 bean 的依赖注入。
 
-  ### 6.3 Bean
+### 6.3 Bean
 
   Spring IoC容器将管理一个或多个bean，这些bean 将通过配置文件中的bean定义被创建(在XML格式中为`<bean/>`元素)。
 
@@ -942,7 +941,7 @@ Spring 4.1为了在`CacheInterface`添加一个新的`putIfAbsent`方法也做�
 
   >Bean的元数据和手动单例实例需要尽早注册，为了使容器正确推断它们在自动装配和其他内省的步骤。虽然在某些程度上支持重写元数据和单例，但是在运行时注册新的bean不是官方支持的，可能会导致并发访问的异常并且出现不一致的状态在bean容器中。
 
-  #### 6.3.1 Bean 的命名
+#### 6.3.1 Bean 的命名
 
   每一个Bean都可以注册一个或多个标识符，但这些标识符必须在容器管理的范围内保持唯一。通常我们一个Bean只会注册一个标识符，其他的我们用别名来表示。
 
@@ -984,7 +983,7 @@ Spring 4.1为了在`CacheInterface`添加一个新的`putIfAbsent`方法也做�
   如果使用的是Java-configuration，@Bean注解支持别名，详见[6.12.3，“@Bean注解的应用”]()。
   ```
 
-  #### 6.3.2 实例化Bean
+#### 6.3.2 实例化Bean
 
   从本质上来说，bean定义描述了如何创建一个或多个对象实例。当需要的时候， 容器会从bean定义列表中取得一个指定的bean定义，并根据bean定义里面的配置元数据 使用反射机制来创建（或取得）一个实际的对象。
 
@@ -1110,11 +1109,11 @@ Spring 4.1为了在`CacheInterface`添加一个新的`putIfAbsent`方法也做�
 
   >Spring文档中的factory bean指的是配置在Spring容器中通过使用 [实例]() 或 [静态工厂方法]()创建对象的一种bean。而文档中的`FactoryBean` （注意首字母大写）指的是Spring特有的 `FactoryBean`。
 
-  ### 6.4 依赖
+### 6.4 依赖
 
   典型的企业应用不会只由单一的对象（或Spring的术语bean)组成。毫无疑问，即使最简单的系统也需要多个对象共同来展示给用户一个整体的应用。接下来的的内容除了阐述如何单独定义一系列bean外，还将描述如何让这些bean对象一起协同工作来实现一个完整的真实应用。
 
-  #### 6.4.1 依赖注入
+#### 6.4.1 依赖注入
 
   依赖注入（DI）背后的基本原理是对象之间的依赖关系（即一起工作的其它对象）只会通过以下几种方式来实现：构造器的参数、工厂方法的参数，或给由构造函数或者工厂方法创建的对象设置属性。因此，容器的工作就是创建bean时注入那些依赖关系。相对于由bean自己来控制其实例化、直接在构造器中指定依赖关系或者类似服务定位器（Service Locator）模式这3种自主控制依赖关系注入的方法来说，控制从根本上发生了倒转，这也正是控制反转（Inversion of Control， IoC） 名字的由来。
 
@@ -1417,7 +1416,7 @@ Spring 4.1为了在`CacheInterface`添加一个新的`putIfAbsent`方法也做�
 
   请注意，传给`static`工厂方法的参数由`constructor-arg`元素提供，这与使用构造器注入时完全一样。而且，重要的是，工厂方法所返回的实例的类型并不一定要与包含`static`工厂方法的类类型一致。尽管在此例子中它的确是这样。非静态的实例工厂方法与此相同（除了使用`factory-bean`属性替代`class`属性外），因而不在此细述。
 
-  #### 6.4.2 依赖配置详解
+#### 6.4.2 依赖配置详解
 
   正如前面章节所提到的，bean的属性及构造器参数既可以引用容器中的其他bean，也可以是内联（inline）bean。在spring的XML配置中使用`<property/>`和`<constructor-arg/>`元素定义。
 
